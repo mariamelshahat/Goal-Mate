@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Goal Mate")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f59bbd2af9465524ccaef3bfef78dc331ade332e")]
 [assembly: System.Reflection.AssemblyProductAttribute("Goal Mate")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Goal Mate")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
