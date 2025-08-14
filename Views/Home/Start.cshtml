@@ -1,0 +1,94 @@
+﻿@{
+    Layout = null;
+    ViewData["Title"] = "Goal Mate - Welcome";
+}
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+    }
+
+    /* Full-screen background image that scrolls */
+    .bg-image {
+        background-image: url('/img/goal-illustration.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed; /* Parallax effect */
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+
+    /* Card styling */
+    .welcome-box {
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 15px;
+        padding: 40px;
+        max-width: 500px;
+        box-shadow: 0px 8px 25px rgba(0,0,0,0.2);
+        text-align: center;
+        backdrop-filter: blur(8px);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        /* Hover effect */
+        .welcome-box:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0px 15px 35px rgba(0,0,0,0.3);
+        }
+
+        /* Paragraph visibility */
+        .welcome-box p {
+            color: #333333;
+            font-weight: 500;
+        }
+
+    /* Space between buttons */
+    .btn-space {
+        margin-right: 15px;
+    }
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>@ViewData["Title"]</title>
+
+    <!-- Fonts & Styles -->
+    <link href="~/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,900" rel="stylesheet" />
+    <link href="~/css/sb-admin-2.min.css" rel="stylesheet" />
+</head>
+<body>
+
+    <!-- Background Image -->
+    <div class="bg-image"></div>
+
+    <!-- Card slightly lower -->
+    <div class="d-flex justify-content-center" style="height: 100%; align-items: flex-end; padding-bottom: 80px;">
+        <div class="welcome-box">
+            <h1 class="display-4 text-primary fw-bold">Goal Mate</h1>
+            <p class="lead mb-4">
+                Organize your goals, track your progress, and achieve more!
+            </p>
+            <div class="d-flex flex-column flex-sm-row justify-content-center">
+                <a href="@Url.Action( "Login", "Account" )"
+                   class="btn btn-primary btn-lg px-5 mb-3 mb-sm-0 btn-space shadow-sm">Login</a>
+                <a href="@Url.Action( "Register", "Account" )"
+                   class="btn btn-outline-primary btn-lg px-5 shadow-sm">Register</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="~/js/sb-admin-2.min.js"></script>
+</body>
+</html>

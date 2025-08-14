@@ -1,3 +1,7 @@
+using Goal_Mate.Data;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+
 namespace Goal_Mate
 {
     public class Program
@@ -8,7 +12,9 @@ namespace Goal_Mate
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
+            builder.Services.AddDbContext<Mydbcontext>(options =>options.UseLazyLoadingProxies().UseSqlServer(builder.Configuration.GetConnectionString("Default")));
+            builder.Services.AddIdentity<IdentityUser, IdentityRole> ( options => options.Password.RequireDigit = true )
+                .AddEntityFrameworkStores<Mydbcontext> ();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

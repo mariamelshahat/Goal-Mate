@@ -15,7 +15,7 @@ namespace Goal_Mate.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View("Start");
         }
 
         public IActionResult Privacy()
