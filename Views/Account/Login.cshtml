@@ -1,0 +1,105 @@
+﻿@model Goal_Mate.ViewModel.LoginUser
+@{
+    ViewData["Title"] = "Login";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Goal Mate - Login </title>
+
+    <!-- Custom fonts for this template-->
+    <link href="~/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,900" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="~/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .row {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .card {
+            max-width: 500px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-primary">
+
+    <div class="container-fluid min-vh-100 d-flex align-items-center justify-content-center">
+        <div class="card o-hidden border-0 shadow-lg">
+            <div class="card-body p-0">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="p-5">
+                            <div class="text-center mb-4">
+                                <h1 class="h4 text-gray-900">Welcome Back!</h1>
+                            </div>
+
+                            <form asp-action="Login" method="post" class="user">
+                                <div asp-validation-summary="All" class="text-danger mb-3"></div>
+                                <div class="form-group">
+                                    <input asp-for="UserName" type="text" class="form-control form-control-user"
+                                           placeholder="Enter Username...">
+                                    <span asp-validation-for="UserName" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <input asp-for="Password" type="password" class="form-control form-control-user"
+                                           placeholder="Password">
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox small">
+                                        <input asp-for="RememberMe" type="checkbox" class="custom-control-input" id="customCheck">
+                                        <label class="custom-control-label" for="customCheck">
+                                            Remember Me
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="submit" value="Login" class="btn btn-primary btn-user btn-block" />
+                                </div>
+                            </form>
+
+                            <hr>
+
+                            <div class="text-center">
+                                <a class="small" asp-controller="Account" asp-action="ForgotPassword">Forgot Password?</a>
+                            </div>
+                            <div class="text-center">
+                                <a class="small" asp-controller="Account" asp-action="Register">Create an Account!</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="~/js/sb-admin-2.min.js"></script>
+
+</body>
+</html>

@@ -13,7 +13,11 @@ namespace Goal_Mate
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddDbContext<Mydbcontext>(options =>options.UseLazyLoadingProxies().UseSqlServer(builder.Configuration.GetConnectionString("Default")));
-            builder.Services.AddIdentity<IdentityUser, IdentityRole> ( options => options.Password.RequireDigit = true )
+            builder.Services.AddIdentity<IdentityUser, IdentityRole> ( options =>
+            {
+                options.Password.RequireDigit = true;
+                options.User.AllowedUserNameCharacters += " ";
+            } )
                 .AddEntityFrameworkStores<Mydbcontext> ();
             var app = builder.Build();
 

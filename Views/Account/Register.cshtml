@@ -48,20 +48,20 @@
                     <h1 class="h4 text-gray-900 fw-bold">Create an Account!</h1>
                 </div>
 
-                <form asp-action="Register" method="post">
-                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                <form asp-action="Register" method="post" class="user">
+                    <div asp-validation-summary="All" class="text-danger mb-3"></div>
 
-                    <div class="form-group mb-3">
+                    <div class="form-group">
                         <input asp-for="UserName" type="text" class="form-control form-control-user" placeholder="Username" />
                         <span asp-validation-for="UserName" class="text-danger"></span>
                     </div>
 
-                    <div class="form-group mb-3">
+                    <div class="form-group">
                         <input asp-for="Email" type="email" class="form-control form-control-user" placeholder="Email Address" />
                         <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
 
-                    <div class="form-group row mb-3">
+                    <div class="form-group row ">
                         <div class="col-sm-6 mb-3 mb-sm-0">
                             <input asp-for="Password" type="password" class="form-control form-control-user" placeholder="Password" />
                             <span asp-validation-for="Password" class="text-danger"></span>
@@ -76,11 +76,12 @@
                 </form>
 
                 <hr>
-                <div class="text-center">
+               @*  <div class="text-center">
                     <a class="small" href="forgot-password.html">Forgot Password?</a>
-                </div>
+                </div> *@
                 <div class="text-center">
-                    <a class="small" href="login.html">Already have an account? Login!</a>
+                    <h6>Already have an account?</h6>
+                    <a asp-controller ="Account" asp-action="Login" class="small" >Login!</a>
                 </div>
             </div>
         </div>
