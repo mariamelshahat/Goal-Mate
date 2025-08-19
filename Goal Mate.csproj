@@ -20,7 +20,6 @@
 
   <ItemGroup>
     <Folder Include="Interface\" />
-    <Folder Include="Configuration\" />
     <Folder Include="Repository\" />
   </ItemGroup>
 

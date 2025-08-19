@@ -1,4 +1,5 @@
 using Goal_Mate.Data;
+using Goal_Mate.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,7 +14,7 @@ namespace Goal_Mate
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddDbContext<Mydbcontext>(options =>options.UseLazyLoadingProxies().UseSqlServer(builder.Configuration.GetConnectionString("Default")));
-            builder.Services.AddIdentity<IdentityUser, IdentityRole> ( options =>
+            builder.Services.AddIdentity<ApplicationUser, IdentityRole> ( options =>
             {
                 options.Password.RequireDigit = true;
                 options.User.AllowedUserNameCharacters += " ";

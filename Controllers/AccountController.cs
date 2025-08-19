@@ -1,4 +1,5 @@
-﻿using Goal_Mate.ViewModel;
+﻿using Goal_Mate.Models;
+using Goal_Mate.ViewModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,10 +8,10 @@ namespace Goal_Mate.Controllers
     public class AccountController : Controller
     {
         //Inject.
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
 
-        public AccountController ( SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager )
+        public AccountController ( SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager )
         {
             _signInManager = signInManager;
             _userManager = userManager;
@@ -41,7 +42,7 @@ namespace Goal_Mate.Controllers
         public async Task<IActionResult> Register ( RegisterUser user )
         {
             //Create Account.
-            IdentityUser usermodel = new IdentityUser ();
+            ApplicationUser usermodel = new ApplicationUser ();
             usermodel.UserName = user.UserName;
             usermodel.Email = user.Email;
             usermodel.PasswordHash = user.Password;
@@ -90,7 +91,7 @@ namespace Goal_Mate.Controllers
         [HttpPost]
         public async Task<IActionResult> Login ( LoginUser user )
         {
-            IdentityUser usermodel = await _userManager.FindByNameAsync ( user.UserName );
+            ApplicationUser usermodel = await _userManager.FindByNameAsync ( user.UserName );
             if (usermodel != null)
             {
                 bool found = await _userManager.CheckPasswordAsync ( usermodel, user.Password );
