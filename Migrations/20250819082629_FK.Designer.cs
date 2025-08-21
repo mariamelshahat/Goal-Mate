@@ -4,6 +4,7 @@ using Goal_Mate.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Goal_Mate.Migrations
 {
     [DbContext(typeof(Mydbcontext))]
-    partial class MydbcontextModelSnapshot : ModelSnapshot
+    [Migration("20250819082629_FK")]
+    partial class FK
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -104,7 +107,7 @@ namespace Goal_Mate.Migrations
 
                     b.HasKey("CategoryId");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("Goal_Mate.Models.Subtask", b =>
@@ -126,7 +129,7 @@ namespace Goal_Mate.Migrations
 
                     b.HasIndex("UserTaskId");
 
-                    b.ToTable("Subtasks", (string)null);
+                    b.ToTable("Subtasks");
                 });
 
             modelBuilder.Entity("Goal_Mate.Models.UserTask", b =>
@@ -175,7 +178,7 @@ namespace Goal_Mate.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Tasks", (string)null);
+                    b.ToTable("Tasks");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

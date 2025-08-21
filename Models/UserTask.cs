@@ -15,5 +15,12 @@
         public TaskPriority Priority {  get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? DueDate {  get; set; } 
+        public int CategoryId {  get; set; }
+        public virtual Category Category { get; set; }
+
+        public virtual List<Subtask> Subtasks { get; set; } = new List<Subtask> ();
+
+        public string UserId {  get; set; }
+        public virtual ApplicationUser User { get; set; }
     }
 }

@@ -1,5 +1,7 @@
 using Goal_Mate.Data;
+using Goal_Mate.Interface;
 using Goal_Mate.Models;
+using Goal_Mate.Repository;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,6 +22,8 @@ namespace Goal_Mate
                 options.User.AllowedUserNameCharacters += " ";
             } )
                 .AddEntityFrameworkStores<Mydbcontext> ();
+            builder.Services.AddScoped<ITaskRepository, TaskRepository>();
+       
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

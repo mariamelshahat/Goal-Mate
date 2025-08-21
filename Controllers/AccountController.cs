@@ -98,6 +98,7 @@ namespace Goal_Mate.Controllers
                 if (found)
                 {
                     await _signInManager.SignInAsync ( usermodel, user.RememberMe );
+                    return RedirectToAction ( "Index", "Task" );
                 }
                 else
                 {
@@ -108,7 +109,7 @@ namespace Goal_Mate.Controllers
             {
                 ModelState.AddModelError ( "", "User is not found" );
             }
-            return View ();
+            return View (user);
         }
 
         /// <summary>

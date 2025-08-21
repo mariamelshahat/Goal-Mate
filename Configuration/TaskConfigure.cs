@@ -23,8 +23,17 @@ namespace Goal_Mate.Configuration
                 .HasDefaultValue ( TaskPriority.Medium );
             builder.Property ( t => t.DueDate )
                 .IsRequired ( false );
-                
 
+            builder.HasOne ( t => t.Category )
+                .WithMany ( c => c.Tasks )
+                .HasForeignKey ( t => t.CategoryId );
+
+            builder.
+                HasOne ( t => t.User )
+                .WithMany ( u => u.Tasks )
+               .HasForeignKey ( t => t.UserId )
+               .IsRequired ();
+         
 
         }
     }

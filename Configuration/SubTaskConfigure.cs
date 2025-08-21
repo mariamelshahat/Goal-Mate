@@ -9,6 +9,10 @@ namespace Goal_Mate.Configuration
         public void Configure(EntityTypeBuilder<Subtask> builder) {
             builder.HasKey ( s => s.SubtaskId );
             builder.Property ( s => s.Title ).IsRequired ();
+            builder.
+                HasOne ( s => s.UserTask )
+                .WithMany ( t => t.Subtasks )
+                .HasForeignKey ( s => s.UserTaskId );
         }
     }
 }
